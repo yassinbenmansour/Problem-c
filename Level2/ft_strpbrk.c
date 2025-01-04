@@ -6,24 +6,25 @@
 /*   By: yabenman <yabenman@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 01:00:45 by yabenman          #+#    #+#             */
-/*   Updated: 2025/01/04 01:02:47 by yabenman         ###   ########.fr       */
+/*   Updated: 2025/01/04 04:42:48 by yabenman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strpbrk(const char *s1, const char *s2)
+char	*ft_strpbrk(const char *s1, const char *s2)
 {
-    int i;
-    i = 0;
-    
-    if (!s1 || !s2)
+	int i;
+	i = 0;
+
+	if (!s1 || !s2)
 		return (0);
-    while(*s1){
-        while(s2[i])
-        {
-            if(*s1 == s2[i])
-                return (char *)s1;
-            i++;
-        }
-        *s1++;
-    }
+	while (*s1)
+	{
+		while (s2[i])
+		{
+			if (*s1 == s2[i])
+				return ((char *)s1);
+			i++;
+		}
+		*s1++;
+	}
 }

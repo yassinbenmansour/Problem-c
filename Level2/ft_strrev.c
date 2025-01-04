@@ -6,34 +6,33 @@
 /*   By: yabenman <yabenman@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 01:18:50 by yabenman          #+#    #+#             */
-/*   Updated: 2025/01/04 01:24:08 by yabenman         ###   ########.fr       */
+/*   Updated: 2025/01/04 04:42:50 by yabenman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char    *ft_strrev(char *str)
+char	*ft_strrev(char *str)
 {
-    int i;
-    int len;
-    char temp;
+	int		i;
+	int		len;
+	char	temp;
 
-    i = -1;
-    len = 0;
-
-    while(str[len])
-        len++;
-    while(++i < len / 2)
-    {
-        temp = str[i];
-        str[i] = str[len - i - 1];
-        str[len - i - 1] = temp;
-    }
-    return (str);
+	i = -1;
+	len = 0;
+	while (str[len])
+		len++;
+	while (++i < len / 2)
+	{
+		temp = str[i];
+		str[i] = str[len - i - 1];
+		str[len - i - 1] = temp;
+	}
+	return (str);
 }
 #include <stdio.h>
 
-int main(void)
+int	main(void)
 {
-    char str[] = "Hello";
-    printf("%s",ft_strrev(str));
-    return (0);
+	char str[] = "Hello";
+	printf("%s", ft_strrev(str));
+	return (0);
 }

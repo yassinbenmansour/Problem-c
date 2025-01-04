@@ -1,10 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   last_word.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yabenman <yabenman@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/04 04:43:17 by yabenman          #+#    #+#             */
+/*   Updated: 2025/01/04 04:43:34 by yabenman         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
 void	last_word(char *str)
 {
-	int j = 0;
-	int i = 0;
+	int	j;
+	int	i;
 
+	j = 0;
+	i = 0;
 	while (str[i])
 	{
 		if (str[i] == ' ' && str[i + 1] >= 33 && str[i + 1] <= 126)
@@ -18,7 +32,7 @@ void	last_word(char *str)
 	}
 }
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	if (argc == 2)
 		last_word(argv[1]);

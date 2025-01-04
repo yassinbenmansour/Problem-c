@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yabenman <yabenman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yabenman <yabenman@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 01:00:55 by yabenman          #+#    #+#             */
-/*   Updated: 2025/01/02 02:12:41 by yabenman         ###   ########.fr       */
+/*   Updated: 2025/01/04 04:41:57 by yabenman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_putstr(char *str)
 {
-	int i;
-	i = 0;
+	int	i;
 
+	i = 0;
 	while (str[i] != '\0')
 	{
 		write(1, &str[i], 1);
