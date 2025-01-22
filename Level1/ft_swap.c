@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yabenman <yabenman@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: yabenman <yabenman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 01:50:35 by yabenman          #+#    #+#             */
-/*   Updated: 2025/01/04 04:42:05 by yabenman         ###   ########.fr       */
+/*   Updated: 2025/01/22 03:57:09 by yabenman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_swap(int *a, int *b)
 {
-	static int tmp;
+	int tmp;
 	tmp = *b;
 	*b = *a;
 	*a = tmp;

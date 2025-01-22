@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   last_word.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yabenman <yabenman@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: yabenman <yabenman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 04:43:17 by yabenman          #+#    #+#             */
-/*   Updated: 2025/01/04 04:43:34 by yabenman         ###   ########.fr       */
+/*   Updated: 2025/01/22 04:38:01 by yabenman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,3 +39,5 @@ int	main(int argc, char **argv)
 	write(1, "\n", 1);
 	return (0);
 }
+
+
