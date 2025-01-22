@@ -1,42 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fprime.c                                           :+:      :+:    :+:   */
+/*   expand_str.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yabenman <yabenman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/22 20:34:50 by yabenman          #+#    #+#             */
-/*   Updated: 2025/01/22 20:34:51 by yabenman         ###   ########.fr       */
+/*   Created: 2025/01/22 20:34:18 by yabenman          #+#    #+#             */
+/*   Updated: 2025/01/22 20:34:20 by yabenman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include <unistd.h>
 
 int main(int ac , char **av)
 {
     int i;
-    int nbr ;
-
+    int flag = 0;
     if(ac == 2)
     {
-        nbr = atoi(av[1]);
-        if(nbr == 1)
-            printf("1");
-        
-        i = 1;
-        while(nbr >= ++i)
-        {
-            if(nbr % i == 0){
-                printf("%d",i);
-                if(nbr == i)
-                    break;
-                printf("*");
-                nbr /= i;
-                i = 1;
+        while(av[1][i] == ' ' || av[1][i] == '\t')
+            i++;
+        while(av[1][i]){
+            if(av[1][i] == ' ' || av[1][i] == '\t')
+                flag = 1;
+            else {
+                if(flag)
+                    write(1,"   ",3);
+                flag = 0;
+                write(1,&av[1][i],1);
             }
+            i++;
         }
     }
-    printf("\n");
+    write(1,"\n",1);
     return 0;
 }

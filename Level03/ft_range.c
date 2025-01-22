@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_list.c                                        :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yabenman <yabenman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/22 20:36:08 by yabenman          #+#    #+#             */
-/*   Updated: 2025/01/22 20:36:09 by yabenman         ###   ########.fr       */
+/*   Created: 2025/01/22 20:34:31 by yabenman          #+#    #+#             */
+/*   Updated: 2025/01/22 20:34:33 by yabenman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "list.h"
 
-t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
+int     *ft_range(int start, int end)
 {
-    int swap ;
-    t_list *start;
+    int i = 0;
+    int len = abs((end - start)) +1;
+    int *res = (int *)malloc(sizeof(int) * len);
 
-    lst = start;
-
-    if(lst != NULL && lst->next != NULL)
+    while(i < len)
     {
-        if((*cmp)(lst->data, lst->next->data) == 0){
-            swap = lst->data;
-            lst->data = lst->next->data;
-            lst->next->data = swap;
-            start = lst;
+        if(start < end)
+        {
+            res[i] = start;
+            start++;
+            i++;
         }
         else {
-            lst = lst->next;
+            res[i] = start;
+            start--;
+            i++;
         }
     }
-    return start;
+    return res;
 }

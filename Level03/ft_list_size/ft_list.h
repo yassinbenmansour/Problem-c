@@ -1,19 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list.h                                             :+:      :+:    :+:   */
+/*   ft_list.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yabenman <yabenman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/22 20:35:32 by yabenman          #+#    #+#             */
-/*   Updated: 2025/01/22 20:36:03 by yabenman         ###   ########.fr       */
+/*   Created: 2025/01/22 20:34:57 by yabenman          #+#    #+#             */
+/*   Updated: 2025/01/22 20:34:59 by yabenman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef struct s_list t_list;
-
-struct s_list
+typedef struct    s_list
 {
-	int     data;
-	t_list  *next;
-};
+    struct s_list *next;
+    void          *data;
+}                 t_list;

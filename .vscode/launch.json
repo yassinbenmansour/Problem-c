@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/yabenman/Desktop/EXAM02/level3",
-      "program": "/Users/yabenman/Desktop/EXAM02/level3/build/Debug/outDebug"
+      "cwd": "/Users/yabenman/Desktop/EXAM02/Level03",
+      "program": "/Users/yabenman/Desktop/EXAM02/Level03/build/Debug/outDebug"
     }
   ]
 }
