@@ -1,60 +1,65 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yabenman <yabenman@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/22 20:36:19 by yabenman          #+#    #+#             */
-/*   Updated: 2025/01/22 20:36:20 by yabenman         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include <stdio.h>
 #include <stdlib.h>
 
-
-char ft_strncpy(char *s1 , char *s2, int n)
+static char *ft_strncpy(char *s1, const char *s2, int n)
 {
-    int i = -1;
-    while (++i < n && s2[i])
-        s1[i] = s2[i];
-    s1[i] = '\0';
+    int i = 0;
 
+    while (i < n && s2[i])
+    {
+        s1[i] = s2[i];
+        i++;
+    }
+    s1[i] = '\0';
     return s1;
+}
+
+static int count_words(const char *str)
+{
+    int i = 0;
+    int count = 0;
+
+    while (str[i])
+    {
+        while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
+            i++;
+        if (str[i])
+            count++;
+        while (str[i] && str[i] != ' ' && str[i] != '\t' && str[i] != '\n')
+            i++;
+    }
+    return count;
 }
 
 char **ft_split(char *str)
 {
-    int i;
-    int debut;
-    int j;
-    int cw;
+    int i = 0;
+    int start;
+    int j = 0;
+    int word_count = count_words(str);
+    char **tab = (char **)malloc(sizeof(char *) * (word_count + 1));
 
-    while(str[i])
+    if (!tab)
+        return NULL;
+    while (str[i])
     {
-        while(str[i] && (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'))
+        while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
             i++;
-        if(str[i])
-            cw++;
-        while(str[i] && (str[i] != ' ' || str[i] != '\t' || str[i] != '\n'))
+        start = i;
+        while (str[i] && str[i] != ' ' && str[i] != '\t' && str[i] != '\n')
             i++;
-    }
-
-    char **tab = (char **)malloc(sizeof(char *) * (cw + 1));
-    i = 0;
-
-    while(str[i])
-    {
-        while(str[i] && (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'))
-            i++;
-        debut = i;
-        while (str[i] && (str[i] != ' ' && str[i] != '\t' && str[i] != '\n'))
-			i++;
-        if(i > debut)
+        if (i > start)
         {
-            tab[j] = (char *)malloc(sizeof(char) * ((i - debut) + 1));
-            ft_strncpy(tab[j++],&str[debut],i - debut);
+            tab[j] = (char *)malloc(sizeof(char) * (i - start + 1));
+            if (!tab[j])
+            {
+                // Free previously allocated memory in case of failure
+                while (j > 0)
+                    free(tab[--j]);
+                free(tab);
+                return NULL;
+            }
+            ft_strncpy(tab[j], &str[start], i - start);
+            j++;
         }
     }
     tab[j] = NULL;
